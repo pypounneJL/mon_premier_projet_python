@@ -1,0 +1,41 @@
+from datetime import datetime
+from dateutil.relativedelta import relativedelta
+import calendar
+import json 
+with open ('param.json','r') as file:
+    data=json.load(file)
+#lire les dates en python
+date_naissance_contractant= datetime.strptime(data['date_naissance_contractant'], "%d/%m/%Y")
+date_debut_contrat= datetime.strptime(data['date_debut_contrat'], "%d/%m/%Y")
+date_naissance_conjoint= datetime.strptime(data['date_naissance_conjoint'], "%d/%m/%Y")
+#calcul de l'age
+
+def age_exact(date_naissance : datetime) :
+        # --- Fraction du premier mois ---
+    # Dernier jour du mois de naissance
+    dernier_jour_mois_naissance = calendar.monthrange(date_naissance.year, date_naissance.month)[1]
+
+    fraction_premier_mois = round(
+        (dernier_jour_mois_naissance - date_naissance.day + 1) / dernier_jour_mois_naissance, 3
+    )# --- Nombre de mois pleins entre naissance et mois précédent contrat ---
+    # Date du mois précédent contrat
+    mois_precedent_contrat = date_contrat - relativedelta(months=1)
+
+    nb_annees = mois_precedent_contrat.year - date_naissance.year
+    nb_mois = mois_precedent_contrat.month - date_naissance.month
+
+    total_mois = nb_annees * 12 + nb_mois
+
+
+
+print(age_exact_contractant)
+print(age_exact_conjoint)
+print(int(age_exact_conjoint))
+print(int(age_exact_contractant))
+
+
+
+partie_deci_age_contractant = age_exact_contractant- int(age_exact_contractant)
+partie_deci_age_conjoint = age_exact_conjoint - int(age_exact_conjoint)
+
+
