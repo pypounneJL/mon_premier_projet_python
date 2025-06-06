@@ -1,0 +1,11 @@
+from datetime import datetime
+import json 
+with open ('param.json','r') as file:
+    data=json.load(file)
+#lire les dates en python
+date_naissance_contractant= datetime.strptime(data[0]['date_naissance_contractant'], "%d/%m/%Y")
+date_debut_contrat= datetime.strptime(data[0]['date_debut_contrat'], "%d/%m/%Y")
+
+#calcul de l'age
+age_exact_contractant= ((date_debut_contrat - date_naissance_contractant ).days)/365.2425
+print(age_exact_contractant)
