@@ -18,9 +18,12 @@ date_naissance_conjoint = datetime.strptime(data['date_naissance_conjoint'], "%d
 def dates_flux(date_debut,fractionnement,nb_annees,date_naisssance):
     mois_par_fractions=12//fractionnement 
     nb_periodes= nb_annees *fractionnement
-    age_Exact=[]
+    age_Exact =[]
     age_ENT = []
-    dates_fin=[]
+    Lx_colonne = []
+    dates_fin = []
+    annee_naissance=date_naisssance.year 
+    
     for num_periode in range(nb_periodes):
         # Calcul de la date de début de la prochaine période
         date_periode = date_debut +relativedelta(months=mois_par_fractions*(num_periode+1))
@@ -37,14 +40,18 @@ def dates_flux(date_debut,fractionnement,nb_annees,date_naisssance):
         dernier_jour = calendar.monthrange(annee, mois)[1]
         date_fin_periode = datetime (annee, mois, dernier_jour)
 
-        dates_fin.append(date_fin_periode)
-        age_Exact.append(age_exact(date_naisssance,date_fin_periode))
-        age_ENT.append(int(age_exact(date_naisssance,date_fin_periode)))
-    return (dates_fin , age_ENT, age_Exact)
+        
+        
+        dates_fin.append(date_fin_periode) #on a la date de fin de periode
+        age_Exact.append(age_exact(date_naisssance,date_fin_periode)) #dessus on clacul l'age exact
+        age_ENT.append(int(age_exact(date_naisssance,date_fin_periode)))#puis on calcul l'age entier
+        
+        Lx_colonne.append(table_morta.loc[int(age_exact(date_naisssance,date_fin_periode)) , str(annee_naissance)])# de l'age entier on récupère les Lx
+    return dates_fin , age_ENT, age_Exact, Lx_colonne
     
 
 
         
 
-print(dates_flux(date_effet_rente, 4, 10, date_naissance_contractant))
+print(dates_flux(date_effet_rente, 4, 2, date_naissance_contractant))
 

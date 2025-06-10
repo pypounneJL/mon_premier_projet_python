@@ -27,7 +27,8 @@ def age_exact(date_naissance, date_effet_rente) :
 
     fraction_premier_mois = arrondi_excel(
         (dernier_jour_mois_naissance - date_naissance.day + 1) / dernier_jour_mois_naissance, 3
-    )# --- Nombre de mois pleins entre naissance et mois précédent contrat ---
+    )
+    # --- Nombre de mois pleins entre naissance et mois précédent contrat ---
     # Date du mois précédent contrat
     mois_precedent_contrat = date_effet_rente - relativedelta(months=1)
 
