@@ -1,4 +1,4 @@
-from calcul_age import age_exact, decimal_age
+from calcul_age import age_exact, decimal_age, arrondi_excel
 from decimal import Decimal, ROUND_HALF_UP
 from datetime import datetime
 from dateutil.relativedelta import relativedelta

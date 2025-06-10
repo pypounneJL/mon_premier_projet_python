@@ -37,7 +37,12 @@ def age_exact(date_naissance, date_effet_rente) :
 
     total_mois = nb_annees * 12 + nb_mois
     # comme les contrats commencent le 01/m/n on a fini car on a la fractions de mois entre la naissance et la fin du mois de naissance
-    age_exact= arrondi_excel((fraction_premier_mois+total_mois)/12,3)
+    dernier_jour_mois_contrat = calendar.monthrange(date_effet_rente.year, date_effet_rente.month)[1]
+
+    fraction_dernier_mois = round((date_effet_rente.day - 1) / dernier_jour_mois_contrat, 3)
+
+        # --- Calcul final ---
+    age_exact = arrondi_excel((fraction_premier_mois + total_mois + fraction_dernier_mois) / 12, 3)
     
     
     return age_exact
@@ -45,10 +50,11 @@ def age_exact(date_naissance, date_effet_rente) :
 
 
 
-def decimal_age(date_naissance):
-    return arrondi_excel((age_exact(date_naissance , date_effet_rente))-int(age_exact(date_naissance, date_effet_rente)), 3) 
+def decimal_age(date_naissance, date_flux):
+    return arrondi_excel((age_exact(date_naissance , date_flux))-int(age_exact(date_naissance, date_flux)), 3) 
 
-print(decimal_age(date_naissance_contractant))
+#print(decimal_age(date_naissance_contractant, date_effet_rente))
+#print(age_exact(date_naissance_contractant, date_effet_rente))
 
 
 
