@@ -27,17 +27,4 @@ print(age_exact_conjoint)
 
 
 
-def recuperation_Lx(date_naissance):
-    Lx_collonne = []
-    année_naissance=date_naissance.year 
-    for age in range(0, 500) :
-        
-        Lx_collonne.append(table_morta.loc[age , str(année_naissance)])
-    return Lx_collonne
-
-    
-    
-Lx_contractant=recuperation_Lx(date_naissance_contractant)
-print(Lx_contractant)
-Ly_conjoint= recuperation_Lx(date_naissance_conjoint)
 
