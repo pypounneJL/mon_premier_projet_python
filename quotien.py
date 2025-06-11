@@ -30,6 +30,6 @@ Lx_exact_surLx= Quotient_Lx(dates_flux_liste, Lx_exact)
 Ly_exact_surLy = Quotient_Lx(dates_flux_liste, Ly_exact)
 
 #print(Lx_exact_surLx)
-print(Ly_exact_surLy)
+#print(Ly_exact_surLy)
 
 #print(Lx_exact)

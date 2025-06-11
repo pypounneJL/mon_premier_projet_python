@@ -16,6 +16,8 @@ def arrondi_excel(valeur, nb_decimales):
 date_naissance_contractant = datetime.strptime(data['date_naissance_contractant'], "%d/%m/%Y")
 date_effet_rente = datetime.strptime(data['date_effet_rente'], "%d/%m/%Y")
 date_naissance_conjoint = datetime.strptime(data['date_naissance_conjoint'], "%d/%m/%Y")
+
+taux_technique = data['taux_technique']
 #calcul de l'age
 
 def age_exact(date_naissance, date_effet_rente) :
