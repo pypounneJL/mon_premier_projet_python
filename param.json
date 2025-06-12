@@ -5,7 +5,8 @@
         "date_effet_rente":"01/01/2025",
         "taux_technique": 0,
         "majoration": 0,
-        "annuité_garantie":0   
+        "annuité_garantie":0 ,
+        "date_de_calcul" :  "31/12/2024"
 
     
     }
