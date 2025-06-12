@@ -5,7 +5,7 @@ from dateutil.relativedelta import relativedelta
 import pandas as pd 
 import calendar
 
-def Quotient_Lx(dates_flux_liste, Lx_exact):
+def Quotient_Lx( Lx_exact):
     Lx_exact = np.array(Lx_exact)  # on convertit en array numpy
     
     Quotient_Lx_ex_sur_Lx_ex = np.where(Lx_exact == 0, 0, Lx_exact / Lx_exact[0])

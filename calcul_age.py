@@ -4,21 +4,14 @@ from dateutil.relativedelta import relativedelta
 import pandas as pd 
 import calendar
 import json 
-with open ('param.json','r') as file:
-    data=json.load(file)
+
 
 def arrondi_excel(valeur, nb_decimales):
     facteur = Decimal('1.' + '0'*nb_decimales)
     return float(Decimal(str(valeur)).quantize(facteur, rounding=ROUND_HALF_UP))
 
 
-#lire les dates en python
-date_naissance_contractant = datetime.strptime(data['date_naissance_contractant'], "%d/%m/%Y")
-date_effet_rente = datetime.strptime(data['date_effet_rente'], "%d/%m/%Y")
-date_naissance_conjoint = datetime.strptime(data['date_naissance_conjoint'], "%d/%m/%Y")
 
-taux_technique = data['taux_technique']
-#calcul de l'age
 
 def age_exact(date_naissance, date_effet_rente) :
     """on rentre en argument la date de naissance et la date d'effet de la rente ATTENTION elle doivent eêtre au format date de python """

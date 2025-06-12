@@ -31,7 +31,7 @@ def calcul_at_ter(prorata_deces,probabilité_décès_desDeux,Lx_exact_surLx,annu
         at_ter.append((Lx_exact_surLx[indice] + taux_rev*probabilité_décès_desDeux[indice] + C)*annuite_garantie[indice]*1)
     return at_ter   
 
-cc=422585.62
+
 #print (Lx_exact_surLx[2], probabilité_décès_desDeux[2] ,annuite_garantie[2],prorata_deces[2])
 #print(at_ter)
 
@@ -49,15 +49,15 @@ def calcul_at_bis(at_ter,fractionnement,annuité_gar,majoration,pourcentage_majo
 
 #print(at_bis)
 
-def calcul_ax (terme,at_bis,fractionnement):
+def calcul_ax (terme,at_bis,fractionnement,cc):
 
     if terme=="echu" :
-        somme = sum(at_bis[1:402])
+        somme = sum(at_bis[1:])
     else : 
-        somme = sum(at_bis[0:402])
+        somme = sum(at_bis)
     ax= somme/fractionnement
     rente_brut = cc/ax 
     print(ax, rente_brut)
-    end_time=time.perf_counter()
+    
 
 
