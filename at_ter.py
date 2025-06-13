@@ -49,15 +49,17 @@ def calcul_at_bis(at_ter,fractionnement,annuité_gar,majoration,pourcentage_majo
 
 #print(at_bis)
 
-def calcul_ax (terme,at_bis,fractionnement,cc):
+def calcul_ax (terme,at_bis,fractionnement,cc,frais_sur_arret):
 
     if terme=="echu" :
         somme = sum(at_bis[1:])
     else : 
         somme = sum(at_bis)
     ax= somme/fractionnement
-    rente_brut = cc/ax 
-    print(ax, rente_brut)
+    rente_brut = cc/ax
+    rente_brut_periodique = rente_brut/fractionnement
+    rent_net = rente_brut_periodique / (1+frais_sur_arret/100)
+    print (ax , rente_brut, rente_brut_periodique, rent_net)
     
 
 

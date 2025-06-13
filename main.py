@@ -19,7 +19,7 @@ for i in range(100):
     date_naissance_conjoint = datetime.strptime(data['date_naissance_conjoint'], "%d/%m/%Y")
     date_calcul = datetime.strptime(data['date_de_calcul'], "%d/%m/%Y")
     table_morta= pd.read_csv("Table unisexe.csv",sep= ';',index_col=0)
-
+    frais_sur_arret = 2.5
     taux_technique = data['taux_technique']
     fractionnement = 4
     terme = "echu"
@@ -47,7 +47,7 @@ for i in range(100):
     at_bis=calcul_at_bis(at_ter,fractionnement,annuité_gar,majoration,pourcentage_majo,annuite_garantie)
 
 
-    calcul_ax(terme,at_bis,fractionnement,cc)
+    calcul_ax(terme,at_bis,fractionnement,cc,frais_sur_arret)
 print((time.time()-a)/100)
 
 
